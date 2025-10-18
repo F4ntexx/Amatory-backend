@@ -1,14 +1,20 @@
+
 import { Router } from "express";
-import  {UsersService} from "./users.service.js"
 import cors from "cors";
+
 const router = Router();
+const user = [];
 
-const usersService = new UsersService();
+router.post("/", cors(), (req, res) => {
+  const userData = req.body.data || req.body;
+  user.push(userData);
+  res.status(200).json(user);
+});
 
-router.post("/", cors() , (req, res) => {
-const users = usersService.createUser(req.body);
-  res.status(201).json(users);
-  }
-);
+router.get("/", cors(), (req, res) => {
+  const aa = user[0];
+  res.json(aa);
+  console.log(aa);
+});
 
 export const usersRouter = router;

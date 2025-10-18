@@ -1,0 +1,8 @@
+ const data = {
+    host: "localhost",
+    user: "root",
+    database: "users",
+    password: "root"
+}
+
+export default data
